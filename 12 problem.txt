@@ -1,0 +1,392 @@
+1.Python Program to find largest number of the array. 
+
+# Python3 program to find maximum
+# in arr[] of size n 
+  
+# python function to find maximum
+# in arr[] of size n
+def largest(arr,n):
+  
+    # Initialize maximum element
+    max = arr[0]
+  
+    # Traverse array elements from second
+    # and compare every element with 
+    # current max
+    for i in range(1, n):
+        if arr[i] > max:
+            max = arr[i]
+    return max
+  
+# Driver Code
+arr = [10, 324, 45, 90, 9808]
+n = len(arr)
+Ans = largest(arr,n)
+print ("Largest in given array is",Ans)
+
+
+2. Python program to sum of an array.
+
+# Python 3 code to find sum
+# of elements in given array
+def _sum(arr):
+     
+    # initialize a variable
+    # to store the sum
+    # while iterating through
+    # the array later
+    sum=0
+     
+    # iterate through the array
+    # and add each element to the sum variable
+    # one at a time
+    for i in arr:
+        sum = sum + i
+         
+    return(sum)
+ 
+# driver function
+arr=[]
+# input values to list
+arr = [12, 3, 4, 15]
+ 
+# calculating length of array
+n = len(arr)
+ 
+ans = _sum(arr)
+ 
+# display sum
+print ('Sum of the array is ', ans)
+
+
+3. Python program to find if a string is palindrome or not. 
+
+# function which return reverse of a string
+ 
+def isPalindrome(s):
+    return s == s[::-1]
+ 
+ 
+# Driver code
+s = "malayalam"
+ans = isPalindrome(s)
+ 
+if ans:
+    print("Yes")
+else:
+    print("No")
+
+4. Python program to reverse the words of a string. 
+
+# Python code
+# To reverse words in a given string
+ 
+# input string
+string = "geeks quiz practice code"
+# reversing words in a given string
+s = string.split()[::-1]
+l = []
+for i in s:
+    # apending reversed words to l
+    l.append(i)
+# printing reverse words
+print(" ".join(l))
+
+
+5. Python program to read a file word by word. 
+
+# Python program to read 
+# file word by word
+   
+# opening the text file
+with open('GFG.txt','r') as file:
+   
+    # reading each line    
+    for line in file:
+   
+        # reading each word        
+        for word in line.split():
+   
+            # displaying the words           
+            print(word) 
+
+
+6. Python program to read a file character by character.
+
+# Demonstrated Python Program
+# to read file character by character
+ 
+ 
+file = open('file.txt', 'r')
+ 
+while 1:
+     
+    # read by character
+    char = file.read(1)         
+    if not char:
+        break
+         
+    print(char)
+ 
+file.close()
+
+
+7. Python program to get number of characters, white space, words and lines in a file
+
+# Python implementation to compute
+# number of characters, words, spaces
+# and lines in a file
+  
+# importing os module
+import os
+  
+# Function to count number 
+# of characters, words, spaces 
+# and lines in a file
+def counter(fname):
+      
+    # variable to store total word count
+    num_words = 0
+      
+    # variable to store total line count
+    num_lines = 0
+      
+    # variable to store total character count
+    num_charc = 0
+      
+    # variable to store total space count
+    num_spaces = 0
+      
+    # opening file using with() method
+    # so that file gets closed 
+    # after completion of work
+    with open(fname, 'r') as f:
+          
+        # loop to iterate file
+        # line by line
+        for line in f:
+              
+            # separating a line 
+            # from \n character 
+            # and storing again in line 
+            # variable for further operations
+            line = line.strip(os.linesep)
+              
+            # splitting the line 
+            # to make a list of
+            # all the words present
+            # in that line and storing
+            # that list in
+            # wordlist variable
+            wordslist = line.split()
+              
+            # incrementing value of 
+            # num_lines with each 
+            # iteration of loop to
+            # store total line count
+            num_lines = num_lines + 1
+              
+            # incrementing value of 
+            # num_words by the 
+            # number of items in the
+            # list wordlist
+            num_words = num_words + len(wordslist)
+              
+            # incrementing value of 
+            # num_charc by 1 whenever
+            # value of variable c is other 
+            # than white space in the separated line
+            num_charc = num_charc + sum(1 for c in line 
+                          if c not in (os.linesep, ' '))
+              
+            # incrementing value of 
+            # num_spaces by 1 whenever
+            # value of variable s is 
+            # white space in the separated line
+            num_spaces = num_spaces + sum(1 for s in line 
+                                if s in (os.linesep, ' '))
+      
+    # printing total word count
+    print("Number of words in text file: ", num_words)
+      
+    # printing total line count
+    print("Number of lines in text file: ", num_lines)
+      
+    # printing total character count
+    print("Number of characters in text file: ", num_charc)
+      
+    # printing total space count
+    print("Number of spaces in text file: ", num_spaces)
+  
+# Driver Code: 
+if __name__ == '__main__': 
+    fname = 'File1.txt'
+    try: 
+        counter(fname) 
+    except: 
+        print('File not found')
+
+
+8. Python program to merge two files into a third file. 
+
+# Python program to
+# demonstrate merging
+# of two files
+  
+data = data2 = ""
+  
+# Reading data from file1
+with open('file1.txt') as fp:
+    data = fp.read()
+  
+# Reading data from file2
+with open('file2.txt') as fp:
+    data2 = fp.read()
+  
+# Merging 2 files
+# To add the data of file2
+# from next line
+data += "\n"
+data += data2
+  
+with open ('file3.txt', 'w') as fp:
+    fp.write(data)
+
+
+9. Python program to print all the prime numbers in an interval.
+
+# Python program to print all
+# prime number in an interval
+ 
+def prime(x, y):
+    prime_list = []
+    for i in range(x, y):
+        if i == 0 or i == 1:
+            continue
+        else:
+            for j in range(2, int(i/2)+1):
+                if i % j == 0:
+                    break
+            else:
+                prime_list.append(i)
+    return prime_list
+ 
+# Driver program
+starting_range = 2
+ending_range = 7
+lst = prime(starting_range, ending_range)
+if len(lst) == 0:
+    print("There are no prime numbers in this range")
+else:
+    print("The prime numbers in this range are: ", lst)
+
+10. Python program to find minimum and maximum k elements in tuple.
+
+# Python3 code to demonstrate working of
+# Maximum and Minimum K elements in Tuple
+# Using sorted() + loop
+ 
+# initializing tuple
+test_tup = (5, 20, 3, 7, 6, 8)
+ 
+# printing original tuple
+print("The original tuple is : " + str(test_tup))
+ 
+# initializing K
+K = 2
+ 
+# Maximum and Minimum K elements in Tuple
+# Using sorted() + loop
+res = []
+test_tup = list(sorted(test_tup))
+ 
+for idx, val in enumerate(test_tup):
+    if idx < K or idx >= len(test_tup) - K:
+        res.append(val)
+res = tuple(res)
+ 
+# printing result
+print("The extracted values : " + str(res))
+
+
+11. Python program to find an element from array using binary search. 
+
+# Python 3 program for recursive binary search.
+# Modifications needed for the older Python 2 are found in comments.
+ 
+# Returns index of x in arr if present, else -1
+def binary_search(arr, low, high, x):
+ 
+    # Check base case
+    if high >= low:
+ 
+        mid = (high + low) // 2
+ 
+        # If element is present at the middle itself
+        if arr[mid] == x:
+            return mid
+ 
+        # If element is smaller than mid, then it can only
+        # be present in left subarray
+        elif arr[mid] > x:
+            return binary_search(arr, low, mid - 1, x)
+ 
+        # Else the element can only be present in right subarray
+        else:
+            return binary_search(arr, mid + 1, high, x)
+ 
+    else:
+        # Element is not present in the array
+        return -1
+ 
+# Test array
+arr = [ 2, 3, 4, 10, 40 ]
+x = 10
+ 
+# Function call
+result = binary_search(arr, 0, len(arr)-1, x)
+ 
+if result != -1:
+    print("Element is present at index", str(result))
+else:
+    print("Element is not present in array")
+
+
+12. Python program to sort an array using Bubble sort. 
+
+# Python program for implementation of Bubble Sort
+ 
+def bubbleSort(arr):
+    n = len(arr)
+    # optimize code, so if the array is already sorted, it doesn't need
+    # to go through the entire process
+    swapped = False
+    # Traverse through all array elements
+    for i in range(n-1):
+        # range(n) also work but outer loop will
+        # repeat one time more than needed.
+        # Last i elements are already in place
+        for j in range(0, n-i-1):
+ 
+            # traverse the array from 0 to n-i-1
+            # Swap if the element found is greater
+            # than the next element
+            if arr[j] > arr[j + 1]:
+                swapped = True
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+         
+        if not swapped:
+            # if we haven't needed to make a single swap, we
+            # can just exit the main loop.
+            return
+ 
+ 
+# Driver code to test above
+arr = [64, 34, 25, 12, 22, 11, 90]
+ 
+bubbleSort(arr)
+ 
+print("Sorted array is:")
+for i in range(len(arr)):
+    print("% d" % arr[i], end=" ")
+
